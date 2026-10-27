@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal website Lisa Afri Nanda — Software Engineer di BINUS Group.">
+  <meta name="theme-color" content="#f8f3f5">
+  <title>Lisa Afri Nanda — Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper:#fffdfb; --ink:#342e39; --muted:#77717d; --lilac:#dcd4f4;
+      --pink:#f3d9e2; --mint:#d9eee5; --butter:#f6edcb; --line:#eee6e9;
+      --plum:#735b83; --white:#fff;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:'DM Sans',sans-serif; line-height:1.7; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1120px, calc(100% - 44px)); margin:auto; }
+    .nav { display:flex; justify-content:space-between; align-items:center; padding:24px 0; gap:20px; }
+    .brand { font-weight:700; letter-spacing:.04em; font-size:.95rem; }
+    .brand span { color:var(--plum); }
+    .navlinks { display:flex; gap:24px; color:var(--muted); font-size:.9rem; }
+    .navlinks a:hover, .text-link:hover { color:var(--plum); }
+    .hero { min-height:590px; display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; padding:60px 0 90px; }
+    .eyebrow { color:var(--plum); font-size:.78rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+    h1,h2,h3 { font-family:'Playfair Display',serif; font-weight:600; line-height:1.12; }
+    h1 { font-size:clamp(3.3rem,7vw,6.3rem); letter-spacing:-.055em; margin:20px 0; }
+    h1 em { font-style:normal; color:var(--plum); }
+    .intro { max-width:520px; font-size:1.08rem; color:var(--muted); }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+    .btn { display:inline-flex; padding:12px 19px; border-radius:999px; font-weight:600; font-size:.9rem; transition:transform .2s ease; }
+    .btn:hover { transform:translateY(-2px); }
+    .primary { background:var(--ink); color:white; }
+    .secondary { border:1px solid #ddd2dd; }
+    .art { min-height:400px; position:relative; display:grid; place-items:center; }
+    .blob { width:min(360px,80vw); aspect-ratio: .82; border-radius:48% 52% 42% 58% / 46% 40% 60% 54%; background:linear-gradient(145deg,var(--pink),var(--lilac)); position:relative; transform:rotate(5deg); }
+    .blob:before { content:""; position:absolute; width:62%; height:64%; border-radius:50% 50% 42% 58%; background:var(--mint); right:-14%; top:-7%; opacity:.9; }
+    .blob:after { content:""; position:absolute; width:58%; height:52%; border-radius:48% 52% 55% 45%; background:var(--butter); left:-13%; bottom:0; opacity:.9; }
+    .profile-card { position:absolute; z-index:2; width:min(280px,75%); padding:28px; background:rgba(255,253,251,.86); border:1px solid rgba(255,255,255,.9); box-shadow:0 24px 70px #5b46651c; backdrop-filter:blur(12px); border-radius:22px; text-align:center; }
+    .monogram { width:92px; height:92px; margin:0 auto 18px; border-radius:50%; display:grid; place-items:center; background:linear-gradient(135deg,var(--lilac),var(--pink)); font-family:'Playfair Display',serif; font-size:2.2rem; color:#5e4b70; }
+    .profile-card h3 { margin:0 0 6px; font-size:1.45rem; }
+    .profile-card p { margin:0; color:var(--muted); font-size:.88rem; }
+    .spark { position:absolute; font-size:2rem; color:var(--plum); }
+    .spark.one { top:8%; left:9%; } .spark.two { bottom:8%; right:8%; font-size:1.5rem; }
+    section { padding:82px 0; border-top:1px solid var(--line); }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:34px; }
+    h2 { font-size:clamp(2.3rem,4vw,3.6rem); margin:10px 0 0; letter-spacing:-.04em; }
+    .section-head p { max-width:420px; color:var(--muted); margin:0; }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:36px; }
+    .about-copy { font-size:1.05rem; color:var(--muted); }
+    .note { background:#f8f3fa; padding:26px; border-radius:20px; border:1px solid #eee5f2; }
+    .note strong { display:block; font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:8px; }
+    .chips { display:flex; flex-wrap:wrap; gap:9px; margin-top:18px; }
+    .chip { background:white; border:1px solid var(--line); border-radius:999px; padding:7px 12px; color:#655d6b; font-size:.82rem; }
+    .timeline { display:grid; gap:14px; }
+    .timeline-item { display:grid; grid-template-columns:180px 1fr; gap:25px; padding:25px 0; border-bottom:1px solid var(--line); }
+    .date { color:var(--plum); font-size:.83rem; font-weight:700; letter-spacing:.04em; }
+    .timeline-item h3 { margin:0 0 6px; font-size:1.45rem; }
+    .timeline-item p { margin:0; color:var(--muted); }
+    .sub { font-size:.9rem; margin-bottom:8px!important; color:#938895!important; }
+    .research-card { display:flex; justify-content:space-between; gap:24px; align-items:center; padding:30px; background:linear-gradient(120deg,#f7f1fb,#fff6f7 65%,#f1faf5); border-radius:22px; }
+    .research-card h3 { margin:8px 0 10px; font-size:1.65rem; max-width:700px; }
+    .research-card p { margin:0; color:var(--muted); }
+    .text-link { color:var(--plum); font-weight:700; white-space:nowrap; }
+    .contact { background:#f8f4f6; border-radius:28px; padding:46px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+    .contact h2 { max-width:560px; }
+    footer { padding:26px 0 34px; display:flex; justify-content:space-between; gap:20px; color:var(--muted); font-size:.82rem; }
+    @media (max-width:760px) {
+      .nav { align-items:flex-start; flex-direction:column; } .navlinks { gap:15px; flex-wrap:wrap; }
+      .hero { grid-template-columns:1fr; padding:45px 0 65px; gap:10px; } .art { min-height:360px; }
+      .section-head { display:block; } .section-head p { margin-top:16px; }
+      .about-grid { grid-template-columns:1fr; } .timeline-item { grid-template-columns:1fr; gap:8px; }
+      .research-card,.contact { align-items:flex-start; flex-direction:column; padding:26px; }
+      footer { flex-direction:column; }
+    }
+    @media (prefers-reduced-motion:reduce) { html {scroll-behavior:auto;} *,*:before,*:after {transition:none!important;} }
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="#home">LISA <span>AFRI NANDA</span></a>
+    <nav class="navlinks" aria-label="Navigasi utama">
+      <a href="#about">Tentang</a><a href="#experience">Perjalanan</a><a href="#research">Riset</a><a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow">Personal portfolio · Hello, world!</div>
+        <h1>Thoughtful code,<br><em>meaningful</em> impact.</h1>
+        <p class="intro">Halo, saya Lisa Afri Nanda — Software Engineer di BINUS Group. Saya senang membangun solusi digital dan mengubah kebutuhan menjadi pengalaman yang sederhana, berguna, dan terstruktur.</p>
+        <div class="actions">
+          <a class="btn primary" href="#about">Kenali saya ↓</a>
+          <a class="btn secondary" href="#contact">Terhubung</a>
+        </div>
+      </div>
+      <div class="art" aria-label="Ilustrasi abstrak pastel">
+        <span class="spark one">✳</span><span class="spark two">✦</span>
+        <div class="blob"></div>
+        <div class="profile-card">
+          <div class="monogram">LA</div>
+          <h3>Lisa Afri Nanda</h3>
+          <p>Software Engineer<br>Curious by nature, builder by craft.</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">A little about me</div><h2>Behind the screen.</h2></div><p>Perpaduan rasa ingin tahu, pemikiran analitis, dan perhatian pada detail menjadi bagian dari cara saya bekerja.</p></div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>Saya adalah software engineer dengan latar belakang Sistem Informasi. Perjalanan saya mencakup pengembangan aplikasi desktop dan pekerjaan rekayasa perangkat lunak di lingkungan profesional.</p>
+            <p>Saya percaya teknologi yang baik bukan hanya soal kode yang berjalan, tetapi juga tentang memahami masalah, menjaga kualitas, dan membuat proses terasa lebih mudah bagi penggunanya.</p>
+          </div>
+          <div class="note">
+            <strong>What I bring</strong>
+            <p>Pengalaman dalam pengembangan perangkat lunak, pemahaman basis data, dan pendekatan problem-solving yang berorientasi pada kebutuhan.</p>
+            <div class="chips"><span class="chip">Software Engineering</span><span class="chip">C# / .NET</span><span class="chip">SQL Server</span><span class="chip">MySQL</span><span class="chip">Problem Solving</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">My journey</div><h2>Experience & education.</h2></div><p>Langkah-langkah yang membentuk perjalanan profesional dan akademik saya.</p></div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="date">MEI 2023 — SEKARANG</div>
+            <div><h3>Software Engineer</h3><p class="sub">BINUS Group · Jakarta, Indonesia</p><p>Berkontribusi dalam pengembangan dan pemeliharaan solusi perangkat lunak di lingkungan profesional.</p></div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">MEI 2019 — MEI 2023</div>
+            <div><h3>Desktop Programmer</h3><p class="sub">Sambu Group · Riau, Indonesia</p><p>Pengalaman pengembangan aplikasi desktop dengan ekosistem Visual Studio/.NET, C#, dan basis data SQL Server serta MySQL.</p></div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">2014 — 2018</div>
+            <div><h3>Sarjana Komputer — Sistem Informasi</h3><p class="sub">Universitas Islam Indragiri</p><p>IPK yang tercantum pada profil publik: 3,78.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">Academic work</div><h2>Research notes.</h2></div><p>Jejak riset akademik yang menghubungkan teknologi dan pemecahan masalah.</p></div>
+        <article class="research-card">
+          <div><div class="eyebrow">Publication · 2020</div><h3>Perancangan Sistem Klasifikasi Udang Beracun pada Jenis Udang Tenggek Menggunakan Metode K-Nearest Neighbor (K-NN)</h3><p>Publikasi yang tercatat atas nama Lisa Afrinanda pada Jurnal Selodang Mayang.</p></div>
+          <a class="text-link" href="https://garuda.kemdiktisaintek.go.id/author/view/3676205" target="_blank" rel="noopener noreferrer">Lihat publikasi ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact">
+        <div><div class="eyebrow">Let's connect</div><h2>Good things start with a conversation.</h2><p style="color:var(--muted);max-width:520px">Terbuka untuk terhubung, berbagi ide, dan percakapan seputar teknologi.</p></div>
+        <div class="actions">
+          <a class="btn primary" href="https://id.linkedin.com/in/lisa-afrinanda-4b0385213" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="btn secondary" href="https://github.com/LisaAnanda" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><span>© <span id="year"></span> Lisa Afri Nanda</span><span>Made with care & a little pastel ✿</span></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
